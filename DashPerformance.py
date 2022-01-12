@@ -100,10 +100,25 @@ class DashPerformance:
 			get numbers for Median
 		'''
 
-		print(self.DATA)
+		#print(self.DATA)
 		#1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 17 17 18 19 20 21 22 23 24
 		data = self.DATA.groupby([self.AGGR], as_index=False).mean()
-		print(data)
+		#print(data)
 		#print(data.describe()[['ISPERFORMANCE','PLANPERFORMANCE']])
-		return 0
+		return data
 
+	@property
+	def perf_prediction(self):
+		pred_range = self.DATA.groupby(['MONTH','YEAR'], as_index=False).sum()
+		pred_range = pred_range.loc[pred_range['ISPERFORMANCE'] == 0 ]['YEAR']
+		pred_range = pred_range.drop_duplicates()
+		pred_range = pred_range.to_list()
+		print(pred_range)
+
+		#print(self.PERF_DATA)
+		data = self.PERF_DATA[~self.PERF_DATA['YEAR'].isin(pred_range)]
+		data = data.groupby([self.AGGR], as_index=False)[[self.AGGR,'ISPERFORMANCE']].mean()
+		print(self.PREP_DATA)
+		data['PRED'] = self.PREP_DATA['ISPERFORMANCE'] + data['ISPERFORMANCE']
+		print(data)
+		return data

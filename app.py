@@ -459,11 +459,24 @@ def UpdatePerformance(n_clicks,median,aggregation,location,check_box_year,check_
             'marker':{
                 'color':design['colors']['BarMedian']
                 },
-                'hovertemplate':"<extra></extra><b>%{text} </b> <br>IS: %{y} kWh", 
+                'hovertemplate':"<extra></extra><b>%{text} </b> <br>Median: %{y} kWh", 
                 'hoverinfo':'y'
             
         })
-    dp.perf_median
+        perf_bar_list.append({
+            'x':dp.perf_prediction[aggregation], 
+            'y':dp.perf_prediction.PRED, 
+            'type': 'scatter',
+            'text':header, 
+            'name': 'Pred', 
+            'marker':{
+                'color':design['colors']['BarMedian']
+                },
+                'hovertemplate':"<extra></extra><b>%{text} </b> <br>Pred: %{y} kWh", 
+                'hoverinfo':'y'
+            
+        })
+    
     return dp.perf_gauge,{##### return values for bar
                 'data': perf_bar_list,
                 'layout':{
