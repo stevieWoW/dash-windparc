@@ -653,4 +653,4 @@ def UpdateWindspeedGraph(n_clicks,windspeed_year,aggregation,check_box_year,chec
 
 #server = app.server # for production
 if __name__ == '__main__':
-    app.run_server(debug=True,host='0.0.0.0',port='8071')
+    app.run_server(debug=True)
