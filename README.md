@@ -5,12 +5,11 @@ a dashboard created with Python and Dash to track the windparc i have invested i
 - Windmill Location 
 - Windmill Type
  
-The sidenav provides you some settings, like aggregation
-
+The sidenav provides you some settings, like aggregation for
 - Year
 - Month
 - Windmill
 
-The timerange you wanna see the data from and further you are able to pick a specific location or windill to see its data. 
+you can pick the timerange you wanna see the data from and a specific location or windmill.
 
 
