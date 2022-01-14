@@ -14,7 +14,7 @@ import plotly.express as px
 
 ##################################################
 #initialize the log file
-logging.basicConfig(format = '%(asctime)s ' + "[%(filename)s:%(lineno)s - %(funcName)s() ] %(message)s", filename='/var/log/Windparc/Windparc.log', level = logging.DEBUG)
+logging.basicConfig(format = '%(asctime)s ' + "[%(filename)s:%(lineno)s - %(funcName)s() ] %(message)s", filename='assets/Windparc.log', level = logging.DEBUG)
 
 
 ##################################################
